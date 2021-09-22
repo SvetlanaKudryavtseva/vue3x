@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Vue Mastery</title>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="csrt">Cart ({{cart}})</div>
+    </div>
+    <product-display></product-display>
+
+    <!--   Import App   -->
+    <script src="9-vue-mastery.js"></script>
+    <!--   Import Components   -->
+    <script src="./components/ProductDisplay.js"></script>
+    <!--   Mount App   -->
+    <script>
+        const mountedApp = app.mount('#app')
+    </script>
+</body>
+
+</html>

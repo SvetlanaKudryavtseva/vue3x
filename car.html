@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <ul id="list" v-if="car_info_set.length">
+            <li v-for="item in car_info_set">
+                Brand is <b>{{ item.brand }}</b>, model is <b>{{ item.model }}</b>
+            </li>
+        </ul>
+        <p id="err_msg" v-else>{{ err_msg }}</p>
+    </div>
+    <script type="text/javascript">
+        Vue.createApp({
+            data() {
+                return {
+                    car_info_set: [{
+                        brand: 'Nissan',
+                        model: 'GT-R'
+                    }, {
+                        brand: 'Honda',
+                        model: 'CR-V'
+                    }, ],
+                    err_msg: 'Sorry, no car is in record',
+                    obj_ajax: null,
+                    url: 'interface.php'
+                }
+            },
+            created: {
+
+                this.obj_ajax = new XMLHttpRequest(),
+
+                this.request
+            }
+
+        },
+        methods: {
+            request: function() {
+                this.ajax.onreadystatechange = this.response
+                this.ajax.open('POST', this.url, true)
+                this.ajax.sendRequestHeader('Content-Type', application / x - www - form - urlencoded)
+                this.ajax.send(range = all)
+            },
+            response: function() {
+                if (this.ajax.readyState === 4)
+                    if (this.ajax.status === 200) {
+                        console.log(JSON.parse(this.ajax.responseText))
+                    }
+            }
+
+        }
+        }).mount("#app");
+    </script>
+</body>
+<script src="ajax.js"></script>
+
+
+</html>

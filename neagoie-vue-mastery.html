@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./neagoie-vue-mastery.css">
+    <title>Udemy: Andrei Neagoie - Complete Vue Mastery</title>
+</head>
+
+<body>
+    <a href="https://www.udemy.com/course/complete-vue-js-developer-zero-to-mastery-vuex/learn/lecture/23359996#questions/14996724">Udemy course: Complete Vue Mastery 2021</a>
+
+    <div id="app" v-cloak>
+        <p>{{ firstName }}</p>
+        <p>{{ lastName }}</p>
+        <a :href="url" target="blank">Google</a>
+        <p>{{ age }}</p>
+        <button type="button" @click="increment">Increment</button>
+        <button type="button" @click="decrement">Decrement</button>
+        <hr>
+        <label>First Name</label>
+        <input type="text" v-model="firstName">
+        <label>Last Name</label>
+        <input type="text" :value="lastName" @input="updateLastName">
+    </div>
+    <div id="app2" v-cloak>
+        <p>{{ firstName }}</p>
+        <p>{{ lastName }}</p>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="neagoie-vue-mastery.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Vue Mastery</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="nav-bar"></div>
+
+        <div class="product-display">
+            <div class="product-container">
+                <div class="product-image">
+                    <img :src="image" :alt="imageAlt">
+                </div>
+                <div class="product-info">
+                    <p>{{title}}</p>
+                    <p v-if="inStock && inventory > 10">In Stock</p>
+                    <p v-else-if="inventory>0 && inventory<=10">Almost sold out</p>
+                    <p v-else>Out of Stock</p>
+                    <ul v-for="detail in details">
+                        <li> {{ detail }}</li>
+                    </ul>
+                    <div v-for="variant in variants" class="color-circle" :style="{backgroundColor: variant.color}" @mouseover="updateImage(variant.image)">
+                    </div>
+                    <button class="button" @click="addToCart" :class="{disabledButton: !inStock}" :disabled="!inStock">Add to Cart</button>
+                    <div>
+                        <p class="cart">Cart ({{ cart }})</p>
+                    </div>
+                </div>
+                <div class="color-circle">
+                    {{light}}
+                </div>
+                <div class="color-circle" v-for="light in lights" :style="{backgroundColor: light.color}" @mouseover="updateLight(light.image)">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--   Import App   -->
+    <script src="4-vue-mastery.js"></script>
+    <!--   Mount App   -->
+    <script>
+        const mountedApp = app.mount('#app')
+    </script>
+</body>
+
+</html>

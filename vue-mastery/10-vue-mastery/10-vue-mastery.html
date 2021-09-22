@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Vue Mastery</title>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="cart">Cart ({{cart}})</div>
+        <div class="product-display">
+            <div class="product-container">
+                <div class="product-image">
+                    <img :src="image" :alt="imageAlt">
+                </div>
+                <div class="product-info">
+                    <p>{{ title }}</p>
+                    <p v-if="inStock">In Stock</p>
+                    <p v-else>Out of Stock</p>
+                    <p v-for="detail in details">{{ detail }}</p>
+                    <div v-for="(variant, index) in variants" class="color-circle" :style="{backgroundColor: variant.color}" @mouseover="updateVariant(index)"></div>
+                    <button class="button" @click="addToCart" disabled="!inStock" :class="{disabledButton: !inStock }">Add to Cart</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--   Import App   -->
+    <script src="10-vue-mastery.js"></script>
+    <!--   Mount App   -->
+    <script>
+        const mountedApp = app.mount('#app')
+    </script>
+</body>
+
+</html>
