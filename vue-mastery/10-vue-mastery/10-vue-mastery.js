@@ -40,7 +40,7 @@ const app = Vue.createApp({
         title(){
             return this.brand+ ' ' +this.product
         },
-        image(index){
+        image1(index){
             return this.variants[this.variant.selectedVariant].quantity
         }
 
