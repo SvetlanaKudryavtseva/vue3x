@@ -1,3 +1,5 @@
+const { createApp } = require("@vue/runtime-dom")
+
 app.component('product-display', {
     props: {
         premium: {
@@ -49,7 +51,7 @@ app.component('product-display', {
             console.log(index)
         },
         addToCart(){
-            this.cart+=1
+            this.$emit('add-to-cart')
         }
     },
     computed: {
